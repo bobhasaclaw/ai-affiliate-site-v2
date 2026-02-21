@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories | AI Tools Hub</title>
+  <meta name="description" content="Browse AI tools by category. Find the best AI software for chat, image generation, writing, coding, music, and more.">
+  <meta name="keywords" content="AI categories, AI tools, ChatGPT, Claude, Midjourney, AI software, AI reviews">
+  <meta property="og:title" content="Categories | AI Tools Hub">
+  <meta property="og:description" content="Browse AI tools by category.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bobhasaclaw.github.io/ai-tools-hub/categories.html">
+  <link rel="canonical" href="https://bobhasaclaw.github.io/ai-tools-hub/categories.html">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Categories",
+    "description": "Browse AI tools by category",
+    "url": "https://bobhasaclaw.github.io/ai-tools-hub/categories.html"
+  }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: #1a1a24;
+      --text-primary: #f0f0f5;
+      --text-secondary: #a0a0b0;
+      --accent-primary: #6366f1;
+      --accent-secondary: #8b5cf6;
+      --accent-tertiary: #06b6d4;
+    }
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse at 20% 20%, rgba(99,102,241,0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(139,92,246,0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      backdrop-filter: blur(24px);
+      background: rgba(10,10,15,0.8);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+    }
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-links a.active { color: var(--accent-primary); }
+    
+    /* Hero */
+    .hero {
+      padding: 120px 0 60px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #f0f0f5 0%, #a0a0b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      color: var(--text-secondary);
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Category Filters */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      padding: 24px 0;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-secondary);
+      padding: 10px 20px;
+      border-radius: 24px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover {
+      border-color: var(--accent-primary);
+      color: var(--text-primary);
+    }
+    .filter-btn.active {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      border-color: transparent;
+      color: white;
+    }
+    
+    /* Articles Grid */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+      padding-bottom: 80px;
+    }
+    .article-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+    }
+    .article-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99,102,241,0.3);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .category-tag {
+      background: rgba(99,102,241,0.2);
+      color: #a5b4fc;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .category-tag.chat { background: rgba(99,102,241,0.2); color: #a5b4fc; }
+    .category-tag.image { background: rgba(236,72,153,0.2); color: #f472b6; }
+    .category-tag.writing { background: rgba(34,197,94,0.2); color: #4ade80; }
+    .category-tag.productivity { background: rgba(59,130,246,0.2); color: #60a5fa; }
+    .category-tag.music { background: rgba(168,85,247,0.2); color: #c084fc; }
+    .category-tag.coding { background: rgba(251,191,36,0.2); color: #fcd34d; }
+    .category-tag.search { background: rgba(6,182,212,0.2); color: #22d3ee; }
+    .category-tag.voice { background: rgba(249,115,22,0.2); color: #fb923c; }
+    
+    .read-time {
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      margin-left: auto;
+    }
+    .article-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+    .article-card p {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      flex-grow: 1;
+      margin-bottom: 16px;
+    }
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .date {
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+    }
+    .read-more {
+      color: var(--accent-primary);
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .article-card:hover .read-more { gap: 8px; }
+    
+    /* Stats */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      padding: 40px 0;
+      margin-bottom: 20px;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 40px 0;
+      text-align: center;
+    }
+    footer p {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.75rem; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .filters { gap: 8px; }
+      .filter-btn { padding: 8px 16px; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">🤖 AI Tools Hub</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="articles.html">Articles</a>
+        <a href="categories.html" class="active">Categories</a>
+        <a href="#newsletter">Newsletter</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Browse by Category</h1>
+      <p>Find the perfect AI tool for your needs. Filter by category to discover the best solutions.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All Tools</button>
+      <button class="filter-btn" data-filter="chat">💬 Chat AI</button>
+      <button class="filter-btn" data-filter="image">🎨 Image</button>
+      <button class="filter-btn" data-filter="writing">✍️ Writing</button>
+      <button class="filter-btn" data-filter="productivity">📋 Productivity</button>
+      <button class="filter-btn" data-filter="music">🎵 Music</button>
+      <button class="filter-btn" data-filter="coding">💻 Coding</button>
+      <button class="filter-btn" data-filter="search">🔍 Search</button>
+      <button class="filter-btn" data-filter="voice">🎙️ Voice</button>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value">8</div>
+        <div class="stat-label">Categories</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">15</div>
+        <div class="stat-label">Tools Reviewed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">2026</div>
+        <div class="stat-label">Year</div>
+      </div>
+    </div>
+
+    <div class="articles-grid">
+      <!-- Chat AI -->
+      <a href="articles/chatgpt-review-2026.html" class="article-card" data-category="chat">
+        <div class="card-header">
+          <span class="category-tag chat">Chat AI</span>
+          <span class="read-time">8 min</span>
+        </div>
+        <h3>ChatGPT Review 2026</h3>
+        <p>The leading AI chatbot for conversation, writing, and coding assistance.</p>
+        <div class="card-footer">
+          <span class="date">Feb 20, 2026</span>
+          <span class="read-more">Read Review →</span>
+        </div>
+      </a>
+      
+      <a href="articles/claude-review-2026.html" class="article-card" data-category="chat">
+        <div class="card-header">
+          <span class="category-tag chat">Chat AI</span>
+          <span class="read-time">8 min</span>
+        </div>
+        <h3>Claude Review 2026</h3>
+        <p>Anthropic's AI assistant known for thoughtful, detailed responses.</p>
+        <div class="card-footer">
+          <span class="date">Feb 20, 2026</span>
+          <span class="read-more">Read Review →</span>
+        </div>
+      </a>
+      
+      <a href="articles/deepseek-ai-review-2026.html" class="article-card" data-category="chat">
+        <div class="card-header">
+          <span class="category-tag chat">Chat AI</span>
+          <span class="read-time">10 min</span>
+        </div>
+        <h3>DeepSeek AI Review 2026</h3>
+        <p>The open-source AI model challenging ChatGPT and Claude with impressive performance.</p>
+        <div class="card-footer">
+          <span class="date">Feb 21, 2026</span>
+          <span class="read-more">Read Review →</span>
+        </div>
+      </a>
+
+      <!-- Image -->
+      <a href="articles/midjourney-review-2026.html" class="article-card" data-category="image">
+        <div class="card-header">
+          <span class="category-tag image">Image</span>
+          <span class="read-time">8 min</span>
+        </div>
+        <h3>Midjourney Review 2026</h3>
+        <p>Create stunning AI-generated images from text descriptions.</p>
+        <div class="card-footer">
+          <span class="date">Feb 20, 2026</span>
+          <span class="read-more">Read Review →</span>
+        </div>
+      </a>
+
+      <!-- Writing -->
+      <a href="articles/copy-ai-review-2026.html" class="article-card" data-category="writing">
+        <div class="card-header">
+          <span class="category-tag writing">Writing</span>
+          <span class="read-time">7 min</span>
+        </div>
+        <h3>Copy.ai Review 2026</h3>
+        <p>AI-powered content generator for marketing, social media, and more.</p>
+        <div class="card-footer">
+          <span class="date">Feb 20, 2026</span>
+          <span class="read-more">Read Review →</span>
+        </div>
+      </a>
+      
+      <a href="articles/grammarly-review-2026.html" class="article-card" data-category="writing">
+        <div class="card-header">
+          <span class="category-tag writing">Writing</span>
+          <span class="read-time">7 min</span>
+        </div>
+        <h3>Grammarly Review 2026</h3>
+        <p>AI writing assistant that checks grammar, spelling, and tone.</p>
+        <div class="card-footer">
+          <span class="date">Feb 20, 2026</span>
+          <span class="read-more">Read Review →</span>
+        </div>
+      </a>
+      
+      <a href="articles/best-ai-writing-tools-2026.html" class="article-card" data-category="writing">
+        <div class="card-header">
+          <span class="category-tag writing">Writing</span>
+          <span class="read-time">12 min</span>
+        </div>
+        <h3>Best AI Writing Tools 2026</h3>
+        <p>Comprehensive guide to the top AI writing assistants for content creators.</p>
+        <div class="card-footer">
+          <span class="date">Feb 18, 2026</span>
+          <span class="read-more">Read Guide →</span>
+        </div>
+      </a>
+
+      <!-- Productivity -->
+      <a href="articles/notion-ai-review-2026.html" class="article-card" data-category="productivity">
+        <div class="card-header">
+          <span class="category-tag productivity">Productivity</span>
+          <span class="read-time">7 min</span>
+        </div>
+        <h3>Notion AI Review 2026</h3>
+        <p>AI-powered workspace for notes, docs, and project management.</p>
+        <div class="card-footer">
+          <span class="date">Feb 20, 2026</span>
+          <span class="read-more">Read Review →</span>
+        </div>
+      </a>
+
+      <!-- Music -->
+      <a href="articles/suno-ai-review-2026.html" class="article-card" data-category="music">
+        <div class="card-header">
+          <span class="category-tag music">Music</span>
+          <span class="read-time">10 min</span>
+        </div>
+        <h3>Suno AI Review 2026</h3>
+        <p>Create original music with AI from text descriptions.</p>
+        <div class="card-footer">
+          <span class="date">Feb 21, 2026</span>
+          <span class="read-more">Read Review →</span>
+        </div>
+      </a>
+
+      <!-- Coding -->
+      <a href="articles/cursor-ai-editor-review-2026.html" class="article-card" data-category="coding">
+        <div class="card-header">
+          <span class="category-tag coding">Coding</span>
+          <span class="read-time">12 min</span>
+        </div>
+        <h3>Cursor AI Editor Review 2026</h3>
+        <p>AI-powered code editor transforming software development.</p>
+        <div class="card-footer">
+          <span class="date">Feb 20, 2026</span>
+          <span class="read-more">Read Review →</span>
+        </div>
+      </a>
+      
+      <a href="articles/github-copilot-review-2026.html" class="article-card" data-category="coding">
+        <div class="card-header">
+          <span class="category-tag coding">Coding</span>
+          <span class="read-time">12 min</span>
+        </div>
+        <h3>GitHub Copilot Review 2026</h3>
+        <p>AI pair programmer that can boost your coding productivity by 55%.</p>
+        <div class="card-footer">
+          <span class="date">Feb 20, 2026</span>
+          <span class="read-more">Read Review →</span>
+        </div>
+      </a>
+
+      <!-- Search -->
+      <a href="articles/perplexity-ai-review-2026.html" class="article-card" data-category="search">
+        <div class="card-header">
+          <span class="category-tag search">Search</span>
+          <span class="read-time">12 min</span>
+        </div>
+        <h3>Perplexity AI Review 2026</h3>
+        <p>AI-powered search engine revolutionizing how we find information.</p>
+        <div class="card-footer">
+          <span class="date">Feb 19, 2026</span>
+          <span class="read-more">Read Review →</span>
+        </div>
+      </a>
+
+      <!-- Voice -->
+      <a href="articles/eleven-labs-review-2026.html" class="article-card" data-category="voice">
+        <div class="card-header">
+          <span class="category-tag voice">Voice</span>
+          <span class="read-time">10 min</span>
+        </div>
+        <h3>Eleven Labs Review 2026</h3>
+        <p>The leading AI voice synthesis platform for realistic text-to-speech.</p>
+        <div class="card-footer">
+          <span class="date">Feb 21, 2026</span>
+          <span class="read-more">Read Review →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>🤖 AI Tools Hub | Best AI Software Reviews 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    // Category filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const articleCards = document.querySelectorAll('.article-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Filter cards
+        const filter = btn.dataset.filter;
+        articleCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
